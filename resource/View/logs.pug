@@ -1,0 +1,11 @@
+extends ./layout/main
+
+block layout-content
+    div.col
+        h1.mt-4.border-bottom.text-danger  Last 100 Logs.
+
+        div.border.rounded.pt-2
+            ol
+                each item in logs
+                    li
+                        !=item
