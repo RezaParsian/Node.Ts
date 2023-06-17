@@ -11,11 +11,7 @@ export const migrationDataSource = new DataSource({
     database: Environment.DATABASE_DB,
     synchronize: Environment.DATABASE_SYNCHRONIZE,
     logging: Environment.DATABASE_LOG,
-    entities: [
-
-    ],
-    migrations: [
-
-    ],
+    entities: ['app/Models/**/*.ts'],
+    migrations: ['database/migrations/**/*.ts'],
     subscribers: [],
 })

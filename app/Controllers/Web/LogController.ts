@@ -1,5 +1,5 @@
 import {Request, Response} from "express";
-import {Logger} from "../../../src/Logger";
+import {Logger} from "../../../core/Logger";
 
 export module LogController {
     export async function index(req: Request, res: Response) {

@@ -1,4 +1,4 @@
-import {Logger} from "../../src/Logger";
+import {Logger} from "../../core/Logger";
 import {now} from "../Helpers/functions";
 
 export module ColorConsole {

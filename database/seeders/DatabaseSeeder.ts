@@ -2,7 +2,7 @@ import * as fs from "fs";
 import {Environment} from "../../app/Providers/Environment";
 import {asyncForEach} from "../../app/Helpers/functions";
 import {AppDataSource} from "../../app/Providers/DataSource";
-import {Logger} from "../../src/Logger";
+import {Logger} from "../../core/Logger";
 
 async function insert(data: { model: any, values: object[] }) {
     const datasource = await AppDataSource.instance().getDataSource();

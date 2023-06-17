@@ -1,7 +1,7 @@
 import {Environment} from './Environment';
 import "reflect-metadata";
 import {DataSource} from "typeorm";
-import {Logger} from "../../src/Logger";
+import {Logger} from "../../core/Logger";
 import {ColorConsole} from "../Utilities/Console";
 
 export class AppDataSource {
@@ -18,9 +18,7 @@ export class AppDataSource {
             database: Environment.DATABASE_DB,
             synchronize: Environment.DATABASE_SYNCHRONIZE,
             logging: Environment.DATABASE_LOG,
-            entities: [
-
-            ],
+            entities: ['app/Models/**/*.ts'],
             migrations: [],
             subscribers: [],
         });
@@ -34,7 +32,7 @@ export class AppDataSource {
     }
 
     private async init() {
-        await this.dataSource.initialize().then(async (connection) => {
+        await this.dataSource.initialize().then(() => {
             ColorConsole.info("Data Source has been initialized!");
         }).catch(reason => {
             Logger.error('Initialize AppDataSource', reason);

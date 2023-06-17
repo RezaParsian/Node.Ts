@@ -10,8 +10,6 @@ services:
       POSTGRES_PASSWORD: "${DATABASE_PASSWORD}"
       TZ: "${TZ}"
       PGTZ: "${TZ}"
-    ports:
-      - "5432:5432"
     volumes:
       - ./.db:/var/lib/postgresql/data
       - ./storage:/var/sql
@@ -28,6 +26,8 @@ services:
       POSTGRES_USER: "${DATABASE_USER}"
       POSTGRES_PASSWORD: "${DATABASE_PASSWORD}"
       POSTGRES_DB: "${DATABASE_DB}"
+      TZ: "${TZ}"
+      PGTZ: "${TZ}"
     ports:
       - "${EXPRESS_PORT}:${EXPRESS_PORT}"
     volumes:

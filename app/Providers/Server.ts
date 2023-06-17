@@ -26,6 +26,7 @@ route.use(express.static('public'));
 
 route.set('views', Environment.PWD + '/resource/View');
 route.set('view engine', 'pug');
+
 route.use('/api', api);
 route.use('/', web);
 
