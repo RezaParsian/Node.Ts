@@ -1,12 +1,17 @@
 module.exports = {
     apps:[
+        // {
+        //     name: "NodeTs",
+        //     script: "npx ts-node main.ts",
+        //     exp_backoff_restart_delay: 5000,
+        //     restart_delay: 5000,
+        // },
         {
-            name: "Crawler",
-            script: "npx ts-node main.ts",
-            watch:true,
-            ignore_watch : ["node_modules", ".db",".idea",'storage'],
+            name: "NodeTs",
+            script: "npx nodemon main.ts",
+            watch:false,
             exp_backoff_restart_delay: 5000,
             restart_delay: 5000,
-        }
+        },
     ]
 };

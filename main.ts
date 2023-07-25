@@ -2,6 +2,8 @@ import {AppDataSource} from './app/Providers/DataSource';
 import * as server from './app/Providers/Server';
 import {schedule} from "./app/Console/Kernel";
 import * as glob from 'glob';
+import './app/Controllers/Web/RouterController';
+import {Log} from "./core/Log";
 
 async function bootstrap() {
     // Initialize Database in boostrap.
@@ -21,5 +23,5 @@ bootstrap().then(async () => {
 
     const jsfiles = await glob.glob(pattern, {ignore: 'node_modules/**'});
 
-    console.log(jsfiles)
+    console.log(jsfiles);
 });

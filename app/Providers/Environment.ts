@@ -26,9 +26,11 @@ export module Environment {
 
     export const DATABASE_DB = process.env.DATABASE_DB ?? 'rp76';
 
+    export const POOL_SIZE = Number(process.env.DATABASE_POOL_SIZE) ?? 10;
+
     export const TZ = process.env.TZ ?? 'UTC';
 
-    export function storagePath(address:string="") {
-        return path.join(PWD,"storage", address);
+    export function storagePath(address: string = "") {
+        return path.join(PWD, "storage", address);
     }
 }

@@ -2,7 +2,8 @@ import * as fs from "fs";
 import {Environment} from "../../app/Providers/Environment";
 import {asyncForEach} from "../../app/Helpers/functions";
 import {AppDataSource} from "../../app/Providers/DataSource";
-import {Logger} from "../../core/Logger";
+import {ColorConsole} from "../../app/Utilities/Console";
+import {Log} from "../../core/Log";
 
 async function insert(data: { model: any, values: object[] }) {
     const datasource = await AppDataSource.instance().getDataSource();
@@ -13,7 +14,7 @@ async function insert(data: { model: any, values: object[] }) {
         .values(data.values)
         .execute()
         .catch(reason => {
-            Logger.error('seeder insert: ', reason);
+            Log().error(reason, 'seeder insert');
         });
 }
 
@@ -29,6 +30,6 @@ async function insert(data: { model: any, values: object[] }) {
 
         await insert(classInstance.seed());
     }).then(value => {
-        Logger.error('database seeded: ' + value);
+        ColorConsole.success('database seeded: ' + value);
     });
 })();

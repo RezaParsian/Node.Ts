@@ -1,10 +1,13 @@
 import express from 'express';
-import {LogController} from "../app/Controllers/Web/LogController";
 
 export const web = express.Router();
 
 web.get('/', (req: any, res: any) => {
-    res.send('<h1>Hello World from web.</h1>');
+    res.render('logs');
 })
 
-web.get('/logs',LogController.index);
+export function Get(route: string) {
+    return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+        web.get(route, descriptor.value);
+    }
+}
